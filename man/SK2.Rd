@@ -11,7 +11,7 @@ SK2(A, eps = 1e-10, max_iter = 10000)
 
 \item{eps}{tolerance}
 
-\item{max_iter}{maximum iteration}
+\item{max_iter}{integer, maximum iteration}
 }
 \value{
 a matrix with uniform marginals

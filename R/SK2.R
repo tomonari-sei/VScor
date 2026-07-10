@@ -2,7 +2,7 @@
 #' @description Sinkhorn-Knopp algorithm for square matrix
 #' @param A a square matrix
 #' @param eps tolerance
-#' @param max_iter maximum iteration
+#' @param max_iter integer, maximum iteration
 #' @return a matrix with uniform marginals
 #' @export
 #' @examples
