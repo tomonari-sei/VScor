@@ -12,7 +12,7 @@ VScor(object, ...)
 \item{...}{options for internal functions}
 }
 \value{
-a list of distance, correlation and squared correlation
+output of specific functions
 }
 \description{
 a wrapper of Variance-Stabilizable association

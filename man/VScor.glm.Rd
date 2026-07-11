@@ -12,7 +12,7 @@ VScor.glm(object, ...)
 \item{...}{options for internal functions}
 }
 \value{
-a list of distance, correlation and squared correlation
+a list of association, correlation and squared correlation
 }
 \description{
 Variance-Stabilizable association for glm outputs
