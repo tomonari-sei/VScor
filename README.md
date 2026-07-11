@@ -12,3 +12,6 @@ Example:
   
 > glm_1 = glm(dist ~ speed, data = cars)  
 > VScor(glm_1)  
+  
+To uninstall the package,  
+> remove.packages("VScor")  
