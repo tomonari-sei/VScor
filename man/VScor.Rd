@@ -18,6 +18,9 @@ output of specific functions
 a wrapper of Variance-Stabilizable association
 }
 \examples{
+x = as.table(matrix(c(289, 23, 7, 37), 2, 2))
+VScor(x)
+
 glm_1 = glm(dist ~ speed, data=cars)
 VScor(glm_1)
 }
