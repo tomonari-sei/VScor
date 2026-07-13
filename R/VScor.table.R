@@ -2,7 +2,7 @@
 #' @description Variance-Stabilizable association for table data
 #' @param x a table data
 #' @param ... options for internal functions
-#' @return list of variance stabilized association, correlation and squared correlation
+#' @return list of variance-stabilized association (with standard error), correlation and squared correlation
 #' @export
 #' @examples
 #' N = matrix(c(rpois(2,10), rpois(2,5), rpois(2,10)), 2, 3, byrow=TRUE)
@@ -28,5 +28,5 @@ VScor.table = function(x, ...){
   z = 2 * atanh(sqrt(1-lambda^2))
   VScor = tanh(z)  # Variance-stabilizable correlation
   VScor_squared = VScor^2
-  list(assoc = assoc, VScor = VScor, VScor_squared = VScor_squared)
+  list(assoc = assoc, assoc_se = 1/sqrt(n)/pi, VScor = VScor, VScor_squared = VScor_squared)
 }

@@ -2,7 +2,7 @@
 #' @description Variance-Stabilizable association for glm outputs
 #' @param object An output of glm
 #' @param ... options for internal functions
-#' @return a list of association, correlation and squared correlation
+#' @return a list of association (with standard error), correlation and squared correlation
 #' @export
 #' @examples
 #' glm_1 = glm(dist ~ speed, data=cars)
@@ -25,5 +25,5 @@ VScor.glm = function(object, ...){
   z = 2 * atanh(sqrt(1-lambda^2))
   VScor = tanh(z)  # Variance-stabilizable correlation
   VScor_squared = VScor^2
-  list(assoc = assoc, VScor = VScor, VScor_squared = VScor_squared)
+  list(assoc = assoc, assoc_se = 1/sqrt(n)/pi, VScor = VScor, VScor_squared = VScor_squared)
 }

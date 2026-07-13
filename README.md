@@ -1,4 +1,5 @@
 The R package VScor computes the variance-stabilized (VS) association coefficient of table data or output of glm.
+The association coefficient has the standard error 1/sqrt(n)/pi, where n is the sample size.
 The VS correlation is a transformation of the VS association coefficient that coincides with the Pearson correlation coefficient when the population is bivariate Gaussian.
 If the input is a 2 by 2 table, VScor also returns a signed association coefficient.  
   

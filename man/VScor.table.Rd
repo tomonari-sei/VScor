@@ -12,7 +12,7 @@ VScor.table(x, ...)
 \item{...}{options for internal functions}
 }
 \value{
-list of variance stabilized association, correlation and squared correlation
+list of variance-stabilized association (with standard error), correlation and squared correlation
 }
 \description{
 Variance-Stabilizable association for table data
