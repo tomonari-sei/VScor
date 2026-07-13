@@ -19,7 +19,7 @@ VScor.table = function(x, ...){
     z = 2 * atanh(pi/2*sin(assoc))
     VScor = tanh(z)  # Variance-stabilizable correlation
     VScor_squared = VScor^2
-    return(list(signed = s, assoc = assoc, VScor = VScor, VScor_squared = VScor_squared))
+    return(list(signed = s, assoc = assoc, assoc_se = 1/sqrt(n)/pi, VScor = VScor, VScor_squared = VScor_squared))
   }
   n = sum(x)
   phat = x / n
