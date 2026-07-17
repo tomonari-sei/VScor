@@ -1,5 +1,5 @@
 #' @title VScor.main
-#' @description main function for Variance-Stabilizable association
+#' @description main function for Variance-Stabilizable correlation
 #' @param A a square matrix
 #' @param ... options for internal functions
 #' @return the singular value of square root of scaled matrix

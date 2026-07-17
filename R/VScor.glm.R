@@ -1,8 +1,8 @@
 #' @title VScor.glm
-#' @description Variance-Stabilizable association for glm outputs
+#' @description Variance-Stabilizable correlation for glm outputs
 #' @param object An output of glm
 #' @param ... options for internal functions
-#' @return a list of association (with standard error), correlation and squared correlation
+#' @return a list of Riemannian distance (with standard error), correlation and squared correlation
 #' @export
 #' @examples
 #' glm_1 = glm(dist ~ speed, data=cars)
@@ -21,9 +21,9 @@ VScor.glm = function(object, ...){
   y_th = y_th - max(y_th)  # subtract the maximum for numerical stability
   A = exp(y_th)
   lambda = VScor.main(A, ...)  # the largest singular value of sqrt of density ratio
-  assoc = asin(sqrt(1-lambda^2)) * 2 / pi  # Variance-stabilizing transformation
+  RD = asin(sqrt(1-lambda^2)) * 2  # Variance-stabilizing transformation
   z = 2 * atanh(sqrt(1-lambda^2))
   VScor = tanh(z)  # Variance-stabilizable correlation
   VScor_squared = VScor^2
-  list(assoc = assoc, assoc_se = 1/sqrt(n)/pi, VScor = VScor, VScor_squared = VScor_squared)
+  list(distance = RD, distance_se = 1/sqrt(n), VScor = VScor, VScor_squared = VScor_squared)
 }

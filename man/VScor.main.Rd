@@ -15,7 +15,7 @@ VScor.main(A, ...)
 the singular value of square root of scaled matrix
 }
 \description{
-main function for Variance-Stabilizable association
+main function for Variance-Stabilizable correlation
 }
 \examples{
 A = matrix(runif(10*10), 10, 10)

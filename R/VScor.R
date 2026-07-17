@@ -1,5 +1,5 @@
 #' @title VScor
-#' @description a wrapper of Variance-Stabilizable association
+#' @description a wrapper of Variance-Stabilizable correlation
 #' @param object An output of glm
 #' @param ... options for internal functions
 #' @return output of specific functions

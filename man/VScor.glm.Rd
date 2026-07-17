@@ -12,10 +12,10 @@ VScor.glm(object, ...)
 \item{...}{options for internal functions}
 }
 \value{
-a list of association (with standard error), correlation and squared correlation
+a list of Riemannian distance (with standard error), correlation and squared correlation
 }
 \description{
-Variance-Stabilizable association for glm outputs
+Variance-Stabilizable correlation for glm outputs
 }
 \examples{
 glm_1 = glm(dist ~ speed, data=cars)

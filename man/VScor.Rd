@@ -15,7 +15,7 @@ VScor(object, ...)
 output of specific functions
 }
 \description{
-a wrapper of Variance-Stabilizable association
+a wrapper of Variance-Stabilizable correlation
 }
 \examples{
 x = as.table(matrix(c(289, 23, 7, 37), 2, 2))
