@@ -17,7 +17,7 @@ VScor.table = function(x, ...){
     delta = max(-1, min(1, delta))  # avoiding numerical issues
     s = asin(delta)  # signed Riemannian distance (variance-stabilizing transformation)
     RD = abs(s)      # Riemannian distance
-    z = 2 * atanh(abs(delta))
+    z = 2 * atanh(sin(RD / 2))
     VScor = tanh(z)  # Variance-stabilizable correlation
     VScor_squared = VScor^2
     return(list(signed = s, distance = RD, distance_se = 1/sqrt(n), VScor = VScor, VScor_squared = VScor_squared))
