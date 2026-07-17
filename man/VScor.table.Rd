@@ -12,10 +12,10 @@ VScor.table(x, ...)
 \item{...}{options for internal functions}
 }
 \value{
-list of variance-stabilized association (with standard error), correlation and squared correlation
+list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation
 }
 \description{
-Variance-Stabilizable association for table data
+Variance-Stabilizable correlation for table data
 }
 \examples{
 N = matrix(c(rpois(2,10), rpois(2,5), rpois(2,10)), 2, 3, byrow=TRUE)
