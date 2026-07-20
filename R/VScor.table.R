@@ -2,13 +2,15 @@
 #' @description Variance-Stabilizable correlation for table data
 #' @param x a table data
 #' @param ... options for internal functions
-#' @return list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation
+#' @return list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation.
+#' If the size of the table is 2 by 2, the signed Riemannian distance is also returned.
+#' If the option draw is TRUE, confidence intervals are plotted.
 #' @export
 #' @examples
 #' N = matrix(c(rpois(2,10), rpois(2,5), rpois(2,10)), 2, 3, byrow=TRUE)
 #' VScor.table(N)
 
-VScor.table = function(x, ..., draw=TRUE, conf.level=0.95){
+VScor.table = function(x, ..., draw=FALSE, conf.level=0.95){
   n = sum(x)
   phat = x / n
   if(nrow(x) == 2 && ncol(x) == 2){ # 2 by 2 table
