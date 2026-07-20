@@ -34,11 +34,11 @@ VScor.table = function(x, ..., draw=FALSE, conf.level=0.95){
     segments(RD, 0, RD, VScor, lty=3)
     segments(0, VScor, RD, VScor, lty=3)
     z = qnorm((1 + conf.level) / 2) / sqrt(n)
-    arrows(RD - z, 0, RD + z, 0, length=0.05, angle=90, code=3)
+    arrows(RD - z, 0, RD + z, 0, length=0.05, angle=90, code=3) # confidence interval
     arrows(0, f(RD - z), 0, f(RD + z), length=0.05, angle=90, code=3)
     b = sqrt(qchisq(conf.level, (nrow(x) - 1) * (ncol(x) - 1)) / n)
-    segments(b, 0, b, 1, lty=2)
-    segments(0, f(b), pi, f(b), lty=2)
+    segments(b, 0, b, 1, lty=2, col="blue")  # critical value
+    segments(0, f(b), pi, f(b), lty=2, col="blue")
   }
   if(nrow(x) == 2 && ncol(x) == 2){
     return(list(signed = s, distance = RD, distance_se = 1/sqrt(n), VScor = VScor, VScor_squared = VScor_squared))
