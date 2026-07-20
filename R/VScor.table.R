@@ -8,7 +8,7 @@
 #' N = matrix(c(rpois(2,10), rpois(2,5), rpois(2,10)), 2, 3, byrow=TRUE)
 #' VScor.table(N)
 
-VScor.table = function(x, ...){
+VScor.table = function(x, ..., draw=TRUE, conf.level=0.95){
   n = sum(x)
   phat = x / n
   if(nrow(x) == 2 && ncol(x) == 2){ # 2 by 2 table
@@ -21,12 +21,25 @@ VScor.table = function(x, ...){
     lambda = min(max(0, svd(sqrt(phat), 1, 1)$d[1]), 1)
     RD = asin(sqrt(1-lambda^2)) * 2  # Riemannian distance
   }
-  z = 2 * atanh(sin(RD / 2))
-  VScor = tanh(z)  # Variance-stabilizable correlation
+  VScor = 2 * sin(RD / 2) / (1 + sin(RD / 2)^2)  # Variance-stabilizable correlation
   VScor_squared = VScor^2
+  if(draw){
+    f = function(x) 2 * sin(x / 2) / (1 + sin(x / 2)^2)
+    curve(f(x), xlim=c(0, pi), xlab="Riemannian distance", ylab="VS correlation")
+    points(RD, VScor, col="red")
+    segments(RD, 0, RD, VScor, lty=3)
+    segments(0, VScor, RD, VScor, lty=3)
+    z = qnorm((1 + conf.level) / 2) / sqrt(n)
+    arrows(RD - z, 0, RD + z, 0, length=0.05, angle=90, code=3)
+    arrows(0, f(RD - z), 0, f(RD + z), length=0.05, angle=90, code=3)
+    b = sqrt(qchisq(conf.level, (nrow(x) - 1) * (ncol(x) - 1)) / n)
+    segments(b, 0, b, 1, lty=2)
+    segments(0, f(b), pi, f(b), lty=2)
+  }
   if(nrow(x) == 2 && ncol(x) == 2){
     return(list(signed = s, distance = RD, distance_se = 1/sqrt(n), VScor = VScor, VScor_squared = VScor_squared))
   }else{
     return(list(distance = RD, distance_se = 1/sqrt(n), VScor = VScor, VScor_squared = VScor_squared))
   }
 }
+
