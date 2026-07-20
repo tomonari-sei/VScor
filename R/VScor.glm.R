@@ -22,8 +22,7 @@ VScor.glm = function(object, ...){
   A = exp(y_th)
   lambda = VScor.main(A, ...)  # the largest singular value of sqrt of density ratio
   RD = asin(sqrt(1-lambda^2)) * 2  # Variance-stabilizing transformation
-  z = 2 * atanh(sqrt(1-lambda^2))
-  VScor = tanh(z)  # Variance-stabilizable correlation
+  VScor = 2 * sin(RD / 2) / (1 + sin(RD / 2)^2)  # Variance-stabilizable correlation
   VScor_squared = VScor^2
   list(distance = RD, distance_se = 1/sqrt(n), VScor = VScor, VScor_squared = VScor_squared)
 }
