@@ -2,6 +2,8 @@
 #' @description Variance-Stabilizable correlation for table data
 #' @param x a table data
 #' @param ... options for internal functions
+#' @param draw logical, to draw a plot
+#' @param conf.level numeric, the confidence level (used only when draw = TRUE)
 #' @return list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation.
 #' If the size of the table is 2 by 2, the signed Riemannian distance is also returned.
 #' If the option draw is TRUE, confidence intervals are plotted.

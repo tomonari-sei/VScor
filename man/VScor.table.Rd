@@ -10,6 +10,10 @@ VScor.table(x, ..., draw = FALSE, conf.level = 0.95)
 \item{x}{a table data}
 
 \item{...}{options for internal functions}
+
+\item{draw}{logical, to draw a plot}
+
+\item{conf.level}{numeric, the confidence level (used only when draw = TRUE)}
 }
 \value{
 list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation.
