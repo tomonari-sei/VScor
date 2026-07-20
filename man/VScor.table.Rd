@@ -4,7 +4,7 @@
 \alias{VScor.table}
 \title{VScor.table}
 \usage{
-VScor.table(x, ...)
+VScor.table(x, ..., draw = FALSE, conf.level = 0.95)
 }
 \arguments{
 \item{x}{a table data}
@@ -12,7 +12,9 @@ VScor.table(x, ...)
 \item{...}{options for internal functions}
 }
 \value{
-list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation
+list of Riemannian distance (with standard error), variance-stabilizable correlation and squared correlation.
+If the size of the table is 2 by 2, the signed Riemannian distance is also returned.
+If the option draw is TRUE, confidence intervals are plotted.
 }
 \description{
 Variance-Stabilizable correlation for table data
